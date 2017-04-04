@@ -194,22 +194,23 @@ void testInsert() {
 }
 
 
-template<typename T>
-bool compareIt(T cmpA, T cmpB){
-    cout << cmpA << endl;
-    if (cmpA == cmpB){
-        return true;
-    }
-    return false;
-}
-
-
-
 bool testingInsert(){
 
     IntVector* vec = new IntVector(10);
+
+    //testing if empty
+    if(!vec->empty()){
+        return false;
+    }
+
+    //testing insert of 10
     vec->insert(0, 10);
-    if (compareIt(vec->at(0), 10)){
+    if (vec->at(0) != 10){
+        return false;
+    }
+
+    //testing if empty
+    if(vec->empty()){
         return false;
     }
 
@@ -218,15 +219,20 @@ bool testingInsert(){
 
 
 
-int main()
-{
-
+void testFunction(){
     if (!testingInsert()){
         cout << "fail somewhere" << endl;
     }
     else{
         cout << "success" << endl;
     }
+}
+
+
+
+int main()
+{
+    testFunction();
 //    testPushBack();
 //    testInsert();
     return 0;
