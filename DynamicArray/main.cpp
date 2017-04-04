@@ -1,5 +1,6 @@
 #include <iostream>
 #include "IntVector.h"
+#include <stdio.h>
 
 using namespace std;
 
@@ -192,9 +193,41 @@ void testInsert() {
     }
 }
 
+
+template<typename T>
+bool compareIt(T cmpA, T cmpB){
+    cout << cmpA << endl;
+    if (cmpA == cmpB){
+        return true;
+    }
+    return false;
+}
+
+
+
+bool testingInsert(){
+
+    IntVector* vec = new IntVector(10);
+    vec->insert(0, 10);
+    if (compareIt(vec->at(0), 10)){
+        return false;
+    }
+
+    return true;
+}
+
+
+
 int main()
 {
-    testPushBack();
-    testInsert();
+
+    if (!testingInsert()){
+        cout << "fail somewhere" << endl;
+    }
+    else{
+        cout << "success" << endl;
+    }
+//    testPushBack();
+//    testInsert();
     return 0;
 }

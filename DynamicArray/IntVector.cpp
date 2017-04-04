@@ -70,6 +70,10 @@ void IntVector::push_back(int elem) {
 void IntVector::insert(int index, int elem) {
 
     /// TODO: Implement!
+    if (!array[index]){
+        count++;
+    }
+    array[index] = elem;
 }
 
 int IntVector::at(int index) const {
