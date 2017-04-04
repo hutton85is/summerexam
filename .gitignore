@@ -45,3 +45,26 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+
+# files in project
+.zip
+.pdf
+# Compiled Object files
+*.o
+*.obj
+
+# Executables
+*.exe
+
+# Folders
+bin/*
+obj/*
+
+# Other files
+*.cbp
+*.depend
+*.layout
+
+bin/*
+obj/*
