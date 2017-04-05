@@ -19,7 +19,7 @@ IntVector::IntVector(int size, int value) {
         size = 0;
     }
 
-    count = 0;
+    count = size;
 
     // Start at INITIAL_CAPACITY
     capacity = INITIAL_CAPACITY;
@@ -32,7 +32,7 @@ IntVector::IntVector(int size, int value) {
     array = new int[capacity];
 
     // Put the initial value in the array "count" times
-    for(int i = 0; i < size; i++) {
+    for(int i = 0; i < count; i++) {
         array[i] = value;
     }
 }
@@ -70,10 +70,12 @@ void IntVector::push_back(int elem) {
 void IntVector::insert(int index, int elem) {
 
     /// TODO: Implement!
-    if (!array[index]){
-        count++;
+    if(index < 0 || count >= index){
+        throw IndexOutOfRangeException();
     }
-    array[index] = elem;
+    else{
+        array[index] = elem;
+    }
 }
 
 int IntVector::at(int index) const {
@@ -82,7 +84,7 @@ int IntVector::at(int index) const {
     // because we cannot find a data element there.
     // Obviously anything higher than that
     // or lower than 0 is not good.
-    if(index < 0 || index >= capacity) {
+    if(index < 0 || index >= count) {
         throw IndexOutOfRangeException();
     }
 
@@ -107,7 +109,7 @@ void IntVector::set_value_at(int index, int elem) {
 
 int IntVector::size() const {
 
-    return capacity;
+    return count;
 }
 
 bool IntVector::empty() const {
