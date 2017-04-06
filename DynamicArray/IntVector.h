@@ -13,6 +13,8 @@ class EmptyException {};
 class IntVector
 {
 	private:
+	    // Increase size of array
+	    void increaseArraySize();
 		// A pointer to an array that stores the vector's values.
 		int* array;
 		// Contains the size of array (i.e. the maximum number of elements

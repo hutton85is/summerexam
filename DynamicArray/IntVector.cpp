@@ -54,6 +54,16 @@ IntVector::~IntVector() {
 
 //Private member functions
 
+void IntVector::increaseArraySize(){
+    capacity = capacity * 2;
+    int* newArray = new int[capacity];
+    for(int i = 0; i < count; i++){
+        newArray[i] = array[i];
+    }
+    delete array;
+    array = newArray;
+}
+
 ///You may want to add private member functions to help with the implementation
 
 // Public member functions
@@ -62,6 +72,7 @@ IntVector::~IntVector() {
 void IntVector::push_back(int elem) {
 
     /// TODO: Implement!
+    insert(count, elem);
 }
 
 ///Inserts new element elem at the location index,
@@ -71,7 +82,15 @@ void IntVector::insert(int index, int elem) {
     if(count < index || index < 0){
         throw IndexOutOfRangeException();
     }
+    if (count == capacity - 1){
+        increaseArraySize();
+    }
+    for(int i = count; i > index; i--){
+        array[i] = array[i-1];
+    }
+
     array[index] = elem;
+    count++;
 }
 
 int IntVector::at(int index) const {

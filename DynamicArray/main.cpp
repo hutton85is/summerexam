@@ -194,7 +194,23 @@ void testInsert() {
 
 int main()
 {
-//    testPushBack();
+    testPushBack();
     testInsert();
+
+//    IntVector v;
+//
+//    for(int i = 0; i < 10; i++){
+//        v.insert(0, i);
+//        cout << v << endl;
+//    }
+//    cout << "*****************" << endl;
+//    cout << "*****************" << endl;
+//    cout << "*****************" << endl;
+//    v.clear();
+//    for(int i = 0; i < 10; i++){
+//        v.push_back(i);
+//        cout << v << endl;
+//    }
+
     return 0;
 }
