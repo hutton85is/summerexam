@@ -32,13 +32,10 @@ class LinkedList
 
         /*******TODO******/
         void headInsert(T value) {
+            head = new ListNode<T>(value, head);
             if (tail == NULL){
-                head = new ListNode<T>(value, NULL);
                 tail = head;
-                return;
             }
-            ListNode<T>* newNode = new ListNode<T>(value, head);
-            head = newNode;
         }
 
         /*******Todo******/
@@ -47,7 +44,8 @@ class LinkedList
                 headInsert(value);
                 return;
             }
-            ListNode<T>* newNode = new ListNode<T>(value, tail);
+            ListNode<T>* newNode = new ListNode<T>(value, NULL);
+            tail->next = newNode;
             tail = newNode;
         }
 
@@ -60,6 +58,9 @@ class LinkedList
             T returnValue = deleteNode->data;
             head = head->next;
             delete deleteNode;
+            if(head == NULL){
+                tail = head;
+            }
             return returnValue;
         }
 
