@@ -30,32 +30,37 @@ class LinkedList
             tail = NULL;
         }
 
+        /*******TODO******/
         void headInsert(T value) {
-    /******************************************************/
-            ///Todo: Implement!
-    /******************************************************/
-            if(tail == NULL) {
+            if (tail == NULL){
+                head = new ListNode<T>(value, NULL);
                 tail = head;
+                return;
             }
+            ListNode<T>* newNode = new ListNode<T>(value, head);
+            head = newNode;
         }
 
+        /*******Todo******/
         void tailInsert(T value) {
-            if(head == NULL) {
+            if(head == NULL){
                 headInsert(value);
                 return;
             }
-    /******************************************************/
-            ///Todo: Implement!
-    /******************************************************/
+            ListNode<T>* newNode = new ListNode<T>(value, tail);
+            tail = newNode;
         }
 
+        /******TODO******/
         T headRemove() {
             if(head == NULL) {
                 throw EmptyException();
             }
-    /******************************************************/
-            ///Todo: Implement!
-    /******************************************************/
+            ListNode<T>* deleteNode = head;
+            T returnValue = deleteNode->data;
+            head = head->next;
+            delete deleteNode;
+            return returnValue;
         }
 
         friend ostream& operator <<(ostream& outs, const LinkedList<T> &lis) {
