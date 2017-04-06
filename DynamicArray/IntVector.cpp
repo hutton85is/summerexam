@@ -20,7 +20,7 @@ IntVector::IntVector(int size, int value) {
     }
 
     count = size;
-
+    cout << INITIAL_CAPACITY << " initial capacity" << endl;
     // Start at INITIAL_CAPACITY
     capacity = INITIAL_CAPACITY;
     // While we still need more space, we double the capacity
@@ -68,14 +68,10 @@ void IntVector::push_back(int elem) {
 ///throws IndexOutOfRangeException()
 ///if index is outside range
 void IntVector::insert(int index, int elem) {
-
-    /// TODO: Implement!
-    if(index < 0 || count >= index){
+    if(count < index || index < 0){
         throw IndexOutOfRangeException();
     }
-    else{
-        array[index] = elem;
-    }
+    array[index] = elem;
 }
 
 int IntVector::at(int index) const {
