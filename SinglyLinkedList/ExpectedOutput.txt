@@ -1,0 +1,39 @@
+
+ -- new LinkedList --
+tailInsert(6)
+list: 6
+headRemove()
+value = 6
+list:
+headRemove()
+Caught EmptyException
+tailInsert(3)
+list: 3
+tailInsert(9)
+list: 3 9
+tailInsert(12)
+list: 3 9 12
+headInsert(43)
+list: 43 3 9 12
+headInsert(83)
+list: 83 43 3 9 12
+headInsert(53)
+list: 53 83 43 3 9 12
+headInsert(23)
+list: 23 53 83 43 3 9 12
+headRemove()
+value = 23
+list: 53 83 43 3 9 12
+tailInsert(63)
+list: 53 83 43 3 9 12 63
+headInsert(89)
+list: 89 53 83 43 3 9 12 63
+tailInsert(2)
+list: 89 53 83 43 3 9 12 63 2
+tailInsert(76)
+list: 89 53 83 43 3 9 12 63 2 76
+headRemove()
+value = 89
+list: 53 83 43 3 9 12 63 2 76
+headInsert(45)
+list: 45 53 83 43 3 9 12 63 2 76
