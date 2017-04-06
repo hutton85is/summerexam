@@ -103,6 +103,18 @@ void StringList::append(const string& item) {
 void StringList::move_to_pos(int pos) {
 
     /// TODO: Implement!
+    if(currentPosition < pos){
+        for(int i = pos; i != pos; i--){
+            currNode = currNode->prev;
+            currentPosition--;
+        }
+    }
+    else{
+        for(int i = pos; i != pos; i++){
+            currNode = currNode->next;
+            currentPosition++;
+        }
+    }
 }
 
 string StringList::remove() {
