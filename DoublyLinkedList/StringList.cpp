@@ -101,26 +101,29 @@ void StringList::append(const string& item) {
 }
 
 void StringList::move_to_pos(int pos) {
-
-    /// TODO: Implement!
-    if(currentPosition < pos){
-        for(int i = pos; i != pos; i--){
-            currNode = currNode->prev;
-            currentPosition--;
-        }
-    }
-    else{
-        for(int i = pos; i != pos; i++){
-            currNode = currNode->next;
-            currentPosition++;
-        }
+    currNode = head;
+    currentPosition = 0;
+    for (int i = 0; i < pos; i++, currentPosition++){
+        currNode = currNode->next;
     }
 }
 
 string StringList::remove() {
 
     /// TODO: Implement!
-    return "";  // REMOVE THIS LINE - Its just to return something
+
+    string returnValue;
+
+    if (currNode == tail){
+
+    }
+
+    returnValue = currNode->data;
+    StringNode* deleteNode = currNode;
+    currNode = currNode->next;
+    delete deleteNode;
+
+    return returnValue;  // REMOVE THIS LINE - Its just to return something
 }
 
 void StringList::move_to_start() {

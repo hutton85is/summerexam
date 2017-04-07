@@ -4,22 +4,42 @@
 
 using namespace std;
 
-bool test(){
+void test(){
     StringList lis;
-    lis.append("a");
-    lis.append("b");
-    lis.append("c");
 
     stringstream s;
-    s << lis;
 
-    if (s.str() == "a b c "){
-        cout << "its the same" << endl;
+    try{
+
+        /****TEST ZERO****/
+        if (lis.curr_pos() != 0 || lis.length() != 0){
+            throw string("FAILURE AT TEST ZERO");
+        }
+
+        /****TEST ONE*****/
+        lis.append("a");
+        lis.append("b");
+        lis.append("c");
+        lis.append("d");
+        s << lis;
+        if (s.str() != "a b c d " || lis.curr_pos() != 0 || lis.get_value() != "a" || lis.length() != 4){
+            throw string("FAILURE AT TEST ONE");
+        }
+
+        /****TEST TWO****/
+        lis.move_to_pos(0);
+        if (lis.curr_pos() != 0 || lis.get_value() != "a"){
+            throw string("FAILURE AT TEST TWO");
+        }
+
+    }
+    catch(string e){
+        cout << e << endl;
     }
 
-    cout << s.str();
-
-    return true;
+    cout << endl;
+    cout << "****************" << endl;
+    cout << "TESTING FINISHED" << endl;
 }
 
 int main() {
