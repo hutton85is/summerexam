@@ -1,0 +1,134 @@
+
+INSERT TEST
+
+HIGH SCORES
+
+player01: 111
+player05: 108
+player06: 100
+player02: 100
+player08: 98
+player03: 97
+player07: 67
+player04: 17
+
+HIGH SCORES
+
+player12: 178
+player15: 167
+player10: 117
+player14: 112
+player01: 111
+player13: 109
+player05: 108
+player06: 100
+player02: 100
+player08: 98
+player03: 97
+player07: 67
+player16: 58
+player09: 21
+player04: 17
+player11: 15
+
+FIND TEST
+
+HIGH SCORES
+
+player12: 178
+player15: 167
+player10: 117
+player14: 112
+player01: 111
+player13: 109
+player05: 108
+player06: 100
+player02: 100
+player08: 98
+player03: 97
+player07: 67
+player16: 58
+player09: 21
+player04: 17
+player11: 15
+
+highScoreTable.find(100)
+player02: 100
+highScoreTable.find(97)
+player03: 97
+highScoreTable.find(111)
+player01: 111
+highScoreTable.find(67)
+player07: 67
+highScoreTable.find(117)
+player10: 117
+highScoreTable.find(21)
+player09: 21
+highScoreTable.find(98)
+player08: 98
+highScoreTable.find(77)
+Caught NotFoundException!
+
+INSERT AND FIND TEST
+
+HIGH SCORES
+
+player01: 111
+player05: 108
+player06: 100
+player02: 100
+player08: 98
+player03: 97
+player07: 67
+player04: 17
+highScoreTable.find(100)
+player02: 100
+highScoreTable.find(97)
+player03: 97
+highScoreTable.find(111)
+player01: 111
+highScoreTable.find(67)
+player07: 67
+highScoreTable.find(117)
+Caught NotFoundException!
+highScoreTable.find(21)
+Caught NotFoundException!
+highScoreTable.find(98)
+player08: 98
+highScoreTable.find(77)
+Caught NotFoundException!
+
+HIGH SCORES
+
+player12: 178
+player15: 167
+player10: 117
+player14: 112
+player01: 111
+player13: 109
+player05: 108
+player06: 100
+player02: 100
+player08: 98
+player03: 97
+player07: 67
+player16: 58
+player09: 21
+player04: 17
+player11: 15
+highScoreTable.find(100)
+player02: 100
+highScoreTable.find(97)
+player03: 97
+highScoreTable.find(111)
+player01: 111
+highScoreTable.find(67)
+player07: 67
+highScoreTable.find(117)
+player10: 117
+highScoreTable.find(21)
+player09: 21
+highScoreTable.find(98)
+player08: 98
+highScoreTable.find(77)
+Caught NotFoundException!
