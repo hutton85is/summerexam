@@ -25,13 +25,48 @@ void test(){
         if (s.str() != "a b c d " || lis.curr_pos() != 0 || lis.get_value() != "a" || lis.length() != 4){
             throw string("FAILURE AT TEST ONE");
         }
+        s.str("");
 
         /****TEST TWO****/
-        lis.move_to_pos(0);
-        if (lis.curr_pos() != 0 || lis.get_value() != "a"){
+        lis.move_to_pos(2);
+        if (lis.curr_pos() != 2 || lis.get_value() != "c"){
+            throw string("FAILURE AT TEST TWO");
+        }
+        lis.move_to_pos(1);
+        if (lis.curr_pos() != 1 || lis.get_value() != "b"){
             throw string("FAILURE AT TEST TWO");
         }
 
+        /****TEST THREE****/
+        lis.move_to_start();
+        lis.remove();
+        if (lis.curr_pos() != 0 || lis.get_value() != "b"){
+            throw string("FAILURE AT TEST THREE");
+        }
+        for (int i = 0; i < lis.length(); i++){
+            lis.remove();
+        }
+        if (lis.curr_pos() != 0 && lis.length() != 0){
+            throw string("FAILURE AT TEST THREE AFTER 'FOR' REMOVE");
+        }
+
+        /****TEST FOUR****/
+        lis.clear();
+        lis.append("A");
+        lis.append("B");
+        lis.append("C");
+        lis.append("D");
+        lis.append("E");
+
+        int c = lis.length();
+        for (int i = 0; i < c; i++){
+            lis.move_to_pos(lis.length()-1);
+            lis.remove();
+        }
+
+        if (lis.curr_pos() != 0 && lis.length() != 0){
+            throw string("FAILURE AT TEST FOUR");
+        }
     }
     catch(string e){
         cout << e << endl;

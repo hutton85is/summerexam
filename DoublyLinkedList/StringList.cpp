@@ -101,7 +101,7 @@ void StringList::append(const string& item) {
 }
 
 void StringList::move_to_pos(int pos) {
-    currNode = head;
+    currNode = head->next;
     currentPosition = 0;
     for (int i = 0; i < pos; i++, currentPosition++){
         currNode = currNode->next;
@@ -111,19 +111,22 @@ void StringList::move_to_pos(int pos) {
 string StringList::remove() {
 
     /// TODO: Implement!
-
-    string returnValue;
-
     if (currNode == tail){
-
+        throw InvalidPositionException();
     }
 
-    returnValue = currNode->data;
-    StringNode* deleteNode = currNode;
-    currNode = currNode->next;
-    delete deleteNode;
+    string returnValue;
+    StringNode* deleteNode = currNode->next;
 
-    return returnValue;  // REMOVE THIS LINE - Its just to return something
+    currNode->prev->next = currNode->next;
+    currNode->next->prev = currNode->prev;
+
+    delete currNode;
+    currNode = deleteNode;
+
+    size--;
+
+    return returnValue;
 }
 
 void StringList::move_to_start() {
