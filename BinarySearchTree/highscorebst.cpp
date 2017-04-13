@@ -34,17 +34,50 @@ void HighScoreBST::clearTree(HighScoreBSTNode *node) {
     }
 }
 
+HighScore HighScoreBST::findScore(int &scoreValue, HighScoreBSTNode* node){
+
+    if (node == NULL){
+        throw NotFoundException();
+    }
+
+    if (node->score.getScore() == scoreValue){
+        return node->score;
+    }
+    else if (scoreValue < node->score.getScore()){
+        return findScore(scoreValue, node->left);
+    }
+    else{
+        return findScore(scoreValue, node->right);
+    }
+}
+
 HighScore HighScoreBST::find(int scoreValue) {
 
     ///Todo: Implement
     ///You may wish to add private helper functions and that is fine
-    return HighScore();  //remove this line after implementing
+    return findScore(scoreValue, root);  //remove this line after implementing
+}
+
+HighScoreBSTNode* HighScoreBST::insertScore(HighScore& newScore, HighScoreBSTNode *node){
+
+    if (node == NULL){
+        return new HighScoreBSTNode(newScore, NULL, NULL);
+    }
+    if (newScore < node->score){
+        node->left = insertScore(newScore, node->left);
+        return node;
+    }
+    else {
+        node->right = insertScore(newScore, node->right);
+        return node;
+    }
 }
 
 void HighScoreBST::addScore(HighScore score) {
 
     ///Todo: Implement
     ///You may wish to add private helper functions and that is fine
+    root = insertScore(score, root);
 }
 
 void HighScoreBST::remove(HighScore score) {

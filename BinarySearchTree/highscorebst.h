@@ -30,6 +30,10 @@ class HighScoreBST
     private:
         HighScoreBSTNode *root;
 
+        HighScoreBSTNode *insertScore(HighScore &newScore, HighScoreBSTNode *node);
+
+        HighScore findScore(int& scoreValue, HighScoreBSTNode* node);
+
         void clearTree(HighScoreBSTNode *node);
 
         HighScoreBSTNode* removeRecursive(HighScore &score, HighScoreBSTNode *node);
